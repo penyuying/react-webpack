@@ -1,0 +1,26 @@
+{
+  "name": "react-webpack",
+  "version": "1.0.0",
+  "description": "react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/penyuying/react-webpack"
+  },
+  "keywords": [
+    "react",
+    "webpack"
+  ],
+  "author": "penyuying",
+  "license": "MIT",
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "html-webpack-plugin": "^3.2.0",
+    "minimist": "^1.2.0",
+    "webpack": "^4.5.0",
+    "webpack-merge": "^4.1.2"
+  }
+}
