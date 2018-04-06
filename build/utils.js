@@ -8,6 +8,7 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const minimist= require('minimist');
+
 const evnOptions = {
     string: 'env',
     default: {
@@ -19,6 +20,7 @@ const evnOptions = {
 
 const env = minimist(process.argv.slice(2), evnOptions);
 
+
 /**
  * 获取参数变量数据
  *
@@ -28,6 +30,39 @@ export function getEvnConfig(){
     return env;
 }
 
+/**
+ * 获取环境变量名称
+ *
+ * @export
+ */
+export function getNodeEvn(){
+    let config = getEvnConfig();
+    let res = config.env || '';
+
+    switch (config.env) {
+        case 'dev':
+        case 'development':
+            res = 'development';
+            break;
+        case 'prod':
+        case 'production':
+            res = 'production';
+            break;
+
+        default:
+            break;
+    }
+    if(!process.env.NODE_ENV) {
+        process.env.NODE_ENV = res;
+    } else {
+        res = process.env.NODE_ENV;
+    }
+
+    console.log('NODE_ENV', res);
+
+    return res;
+}
+getNodeEvn();
 /**
  * 获取环境变量名
  *
@@ -134,9 +169,9 @@ export function getHtmlPath(params){
     });
 }
 
-export function getMainPath(params) {
+export function getMainPath(params, extfix) {
     return getSrcPath(merge({
-        extfix:'ts'
+        extfix: extfix || 'js'
     },params),
         (entries,parms)=>{
             entries[path.join(parms.prefix||'',parms.childDir||'',parms.basename||'').replace(/\\/g, '/')] = parms.entry;
