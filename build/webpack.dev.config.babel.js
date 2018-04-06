@@ -2,8 +2,8 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 
 
-import * as useUtils from './utils';
-import webpackBase from './webpack.base.config.babel';
+import * as useUtils from './utils-use';
+import webpackBase from './webpack.clientBase';
 
 import config from '../config';
 

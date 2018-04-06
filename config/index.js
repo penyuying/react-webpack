@@ -1,18 +1,23 @@
 import path from 'path';
-import * as useUtils from '../build/utils';
+import * as useUtils from '../build/utils-use';
 
 export default {
+    server: {
+        mainJs: {
+            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main-server/**/*.js')
+        }
+    },
     comm: {
         mainJs: {
-            srcPath: path.join(path.resolve(__dirname, '../'),'./src/main/**/*.js')
+            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main/**/*.js')
         },
         index: useUtils.getHtmlPath({
-            srcPath:path.join(path.resolve(__dirname, '../'),'./src/pages-tpls/**/*.html'),
+            srcPath:path.join(path.resolve(process.cwd(), ''),'./src/pages-tpls/**/*.html'),
             prefix:''
         }),
 
         // Paths
-        assetsRoot: path.resolve(__dirname, '../dist/build')
+        assetsRoot: path.resolve(process.cwd(), 'dist/build')
     },
     dev: {
         assetsSubDirectory: 'static',

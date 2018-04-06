@@ -1,10 +1,8 @@
 'use strict'
-import * as useUtils from './utils';
+import * as useUtils from './utils-use';
 import config from '../config'
 
 export default {
-    context: '',
-    entry: useUtils.getMainPath(config.comm.mainJs, 'js'),
     resolve: {
         extensions: ['.js','.jsx'],
         alias: {
