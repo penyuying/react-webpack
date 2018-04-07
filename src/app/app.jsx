@@ -4,7 +4,7 @@ import React from 'react';
 class App extends React.Component {
     render() {
         return (
-            <div>this is app123</div>
+            <div>this is app</div>
         );
     }
 }
@@ -12,3 +12,4 @@ class App extends React.Component {
 setConfig({ logLevel: 'debug' })
 
 export default hot(module)(App)
+// export default App;

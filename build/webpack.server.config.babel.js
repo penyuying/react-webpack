@@ -7,7 +7,11 @@ import webpackBase from './webpack.base';
 
 import config from '../config';
 
-export default merge(webpackBase, {
+export default merge({
+    entry: {
+        'server-main': ['webpack/hot/dev-server']
+    }
+},merge(webpackBase, {
     target: 'node',
     entry: useUtils.getMainPath(config.server.mainJs, 'js'),
     output: {
@@ -17,5 +21,8 @@ export default merge(webpackBase, {
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath,
         libraryTarget: 'commonjs2'
-    }
-});
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ]
+}));

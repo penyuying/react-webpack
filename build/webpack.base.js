@@ -18,6 +18,8 @@ export default merge({
             options: {
                 cacheDirectory: true,
                 plugins: ['react-hot-loader/babel'],
+                compact: true,
+                presets: ['es2015', 'react']
             }
             // loader: 'babel-loader'
         }, {
@@ -29,6 +31,8 @@ export default merge({
                 // directory for faster rebuilds.
                 cacheDirectory: true,
                 plugins: ['react-hot-loader/babel'],
+                compact: true,
+                presets: ['es2015', 'react']
             },
             // loader: 'babel-loader',
             exclude: [

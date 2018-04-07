@@ -4,14 +4,20 @@ import 'core-js/es7/reflect';
 import React from 'react';
 import { render, hydrate } from 'react-dom';
 import App from 'app/app';
-// import { hot } from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader';
 
 const root = document.getElementById('app-root');
 
 const hotRender = Component => {
-    const renderMethod = module.hot ? render : hydrate;
-    renderMethod(<Component />,
+    const renderMethod = hydrate;
+    renderMethod(
+        <Component />,
         root);
+    // renderMethod(
+    //     <AppContainer>
+    //         <Component />
+    //     </AppContainer>,
+    //     root);
 }
 
 hotRender(App);

@@ -12,6 +12,9 @@ let webpackConfig = merge(webpackBase, {
         main: ['react-hot-loader/patch']
     },
     devServer: {
+        headers: {
+            'Access-Control-Allow-Origin': '*', // 5
+        },
         inline: true,
         host: config.dev.host || '0.0.0.0',
         port: config.dev.port || 8080,
