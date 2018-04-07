@@ -1,0 +1,24 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        ".git",
+        "node_modules/**/node_modules",
+        "src",
+        "dist"
+    ],
+    "watch": [
+        "build/",
+        "service/"
+    ],
+    "verbose": true,
+    "events": {
+        "restart": "echo 'display notification $FILENAME'"
+    },
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "execMap": {
+        "js": "babel-node"
+    },
+    "ext": "js json"
+}

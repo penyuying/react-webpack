@@ -20,7 +20,7 @@ export default merge({
         publicPath: process.env.NODE_ENV === 'production'
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath,
-        libraryTarget: 'commonjs2'
+        libraryTarget: 'commonjs'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()

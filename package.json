@@ -14,7 +14,8 @@
     "prebuild": "npm run clear && npm run build:server",
     "postbuild": "npm run server:babel",
     "server:dev": "cross-env NODE_ENV=development babel-node ./service/server.babel.js",
-    "build": "npm run build:prod"
+    "build": "npm run build:prod",
+    "nodemon": "start npm run build:dev && nodemon ./service/server.babel.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "html-webpack-plugin": "^3.2.0",
     "memory-fs": "^0.4.1",
     "minimist": "^1.2.0",
+    "nodemon": "^1.17.3",
     "react-hot-loader": "^4.0.1",
     "transform-runtime": "0.0.0",
     "webpack": "^4.5.0",
