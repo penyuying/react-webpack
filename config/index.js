@@ -21,10 +21,13 @@ export default {
     },
     dev: {
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
+        assetsPublicPath: '/public/',
+        host: 'localhost',
+        port: '8020',
+        errorOverlay: true
     },
     build: {
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/',
+        assetsPublicPath: '/public/',
     }
 }

@@ -13,7 +13,9 @@ export default merge(webpackBase, {
     output: {
         path: config.comm.assetsRoot,
         filename: '[name].js',
-        publicPath: '',
+        publicPath: process.env.NODE_ENV === 'production'
+            ? config.build.assetsPublicPath
+            : config.dev.assetsPublicPath,
         libraryTarget: 'commonjs2'
     }
 });

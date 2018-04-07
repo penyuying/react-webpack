@@ -7,11 +7,25 @@ import webpackBase from './webpack.clientBase';
 
 import config from '../config';
 
-export default merge(webpackBase, {
+let webpackConfig = merge(webpackBase, {
+    entry: {
+        main: ['react-hot-loader/patch']
+    },
+    devServer: {
+        inline: true,
+        host: config.dev.host || '0.0.0.0',
+        port: config.dev.port || 8080,
+        contentBase: useUtils.absPath('dist/build'),
+        hot: true,
+        compress: true,
+        overlay: config.dev.errorOverlay ? { warnings: false, errors: true } : false,
+        publicPath: webpackBase.output.publicPath || '',
+        historyApiFallback: {
+            index: (webpackBase.output.publicPath || '') + '/index.html'
+        }
+    },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': process.env.NODE_ENV
-        }),
-        ...(useUtils.getHtmlPlugin(config.comm.index||'index.html')||[])
+        new webpack.HotModuleReplacementPlugin()
     ]
 });
+export default webpackConfig;

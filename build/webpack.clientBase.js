@@ -1,5 +1,6 @@
 'use strict'
 import path from 'path';
+import webpack from 'webpack';
 import merge from 'webpack-merge';
 
 import * as useUtils from './utils-use';
@@ -17,5 +18,11 @@ export default merge({
         publicPath: process.env.NODE_ENV === 'production'
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': process.env.NODE_ENV
+        }),
+        ...(useUtils.getHtmlPlugin(config.comm.index||'index.html')||[])
+    ]
 }, userWebpackConfig);

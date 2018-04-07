@@ -175,7 +175,7 @@ export function getMainPath(params, extfix) {
         extfix: extfix || 'js'
     },params),
         (entries,parms)=>{
-            entries[path.join(parms.prefix||'',parms.childDir||'',parms.basename||'').replace(/\\/g, '/')] = parms.entry;
+            entries[path.join(parms.prefix||'',parms.childDir||'',parms.basename||'').replace(/\\/g, '/')] = [parms.entry];
             // console.log(entries,parms);
             return entries;
         }
