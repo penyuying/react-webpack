@@ -6,8 +6,7 @@
   "scripts": {
     "clear": "rimraf ./dist/build",
     "build:server": "cross-env NODE_ENV=development webpack --config build/webpack.server.config.babel.js --env=dev",
-    "server": "node ./service/server.js",
-    "server:babel": "babel-node ./service/server.babel.js",
+    "server": "cross-env NODE_ENV=development babel-node ./service/server.babel.js",
     "prebuild:dev": "npm run clear",
     "build:dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.babel.js --env=dev",
     "build:prod": "cross-env NODE_ENV=production webpack --config build/webpack.prod.config.babel.js",
