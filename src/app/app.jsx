@@ -1,4 +1,4 @@
-import { hot, setConfig } from 'react-hot-loader'
+import { hot, setConfig } from 'react-hot-loader';
 import React from 'react';
 
 class App extends React.Component {
@@ -9,7 +9,8 @@ class App extends React.Component {
     }
 }
 
-setConfig({ logLevel: 'debug' })
 
-export default hot(module)(App)
+setConfig({ logLevel: 'debug' });
+
+export default hot(module)(App);
 // export default App;

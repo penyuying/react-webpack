@@ -24,10 +24,14 @@ export default {
         assetsPublicPath: '/public/',
         host: 'localhost',
         port: '8020',
-        errorOverlay: true
+        errorOverlay: true,
+        showEslintErrorsInOverlay: false,
+        useEslint: true // 是否启用eslint
     },
     build: {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/public/',
+        showEslintErrorsInOverlay: false,
+        useEslint: true // 是否启用eslint
     }
 }

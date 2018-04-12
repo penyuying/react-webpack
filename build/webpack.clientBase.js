@@ -11,7 +11,7 @@ import config from '../config';
 
 
 export default merge({
-    entry: useUtils.getMainPath(config.comm.mainJs, 'js'),
+    entry: useUtils.getMainPath(config.comm.mainJs, 'jsx'),
     output: {
         path: config.comm.assetsRoot,
         filename: utils.assetsPath('[name].[hash:8].js'),

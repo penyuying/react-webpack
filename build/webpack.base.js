@@ -1,6 +1,7 @@
 'use strict'
 import path from 'path';
 import merge from 'webpack-merge';
+import eslintFormatter from 'eslint-friendly-formatter';
 
 import * as useUtils from './utils-use';
 import userWebpackConfig from './webpack.user';
@@ -13,6 +14,17 @@ export default merge({
     context: path.resolve(__dirname, '../'),
     module: {
         rules: [{
+            test: /.jsx?$/,
+            loader: 'eslint-loader',
+            enforce: 'pre',
+            include: [path.join(__dirname, '..', 'src')],
+            // exclude: /node_modules/,
+            options: {
+                configFile: useUtils.absPath('.eslintrc.js'),
+                formatter: eslintFormatter,
+                emitWarning: !config.dev.showEslintErrorsInOverlay
+            }
+        }, {
             test: /.jsx$/,
             loader: require.resolve('babel-loader'),
             options: {
