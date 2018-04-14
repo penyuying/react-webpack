@@ -21,17 +21,19 @@ export default {
     },
     dev: {
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/public/',
+        assetsPublicPath: '/public',
         host: 'localhost',
         port: '8020',
         errorOverlay: true,
         showEslintErrorsInOverlay: false,
-        useEslint: true // 是否启用eslint
+        useEslint: true, // 是否启用eslint
+        devtool: 'source-map',
     },
     build: {
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/public/',
+        assetsPublicPath: '/public',
         showEslintErrorsInOverlay: false,
-        useEslint: true // 是否启用eslint
+        useEslint: true, // 是否启用eslint
+        devtool: ''
     }
 }

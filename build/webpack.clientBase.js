@@ -11,7 +11,7 @@ import config from '../config';
 
 
 export default merge({
-    entry: useUtils.getMainPath(config.comm.mainJs, 'jsx'),
+    entry: useUtils.getMainPath(config.comm.mainJs, 'js'),
     output: {
         path: config.comm.assetsRoot,
         filename: utils.assetsPath('[name].[hash:8].js'),
@@ -19,9 +19,10 @@ export default merge({
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath
     },
+    devtool: process.env.NODE_ENV === 'production' ? config.build.devtool : config.dev.devtool,
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': process.env.NODE_ENV
+            'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development") }
         }),
         ...(useUtils.getHtmlPlugin(config.comm.index||'index.html')||[])
     ]

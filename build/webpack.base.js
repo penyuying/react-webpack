@@ -26,27 +26,27 @@ export default merge({
             }
         }, {
             test: /.jsx$/,
-            loader: require.resolve('babel-loader'),
+            // loader: require.resolve('babel-loader'),
             options: {
                 cacheDirectory: true,
-                plugins: ['react-hot-loader/babel'],
+            //     plugins: ['react-hot-loader/babel'],
                 compact: true,
-                presets: ['es2015', 'react']
-            }
-            // loader: 'babel-loader'
+            //     presets: ['es2015', 'react']
+            },
+            loader: 'babel-loader'
         }, {
             test: /.js$/,
-            loader: require.resolve('babel-loader'),
+            // loader: require.resolve('babel-loader'),
             options: {
-                // This is a feature of `babel-loader` for Webpack (not Babel itself).
-                // It enables caching results in ./node_modules/.cache/babel-loader/
-                // directory for faster rebuilds.
+            //     // This is a feature of `babel-loader` for Webpack (not Babel itself).
+            //     // It enables caching results in ./node_modules/.cache/babel-loader/
+            //     // directory for faster rebuilds.
                 cacheDirectory: true,
-                plugins: ['react-hot-loader/babel'],
+            //     plugins: ['react-hot-loader/babel'],
                 compact: true,
-                presets: ['es2015', 'react']
+            //     presets: ['es2015', 'react']
             },
-            // loader: 'babel-loader',
+            loader: 'babel-loader',
             exclude: [
                 useUtils.absPath('node_modules')
             ]

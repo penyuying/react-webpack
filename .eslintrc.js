@@ -94,11 +94,12 @@ module.exports = {
         "import/extensions": 0,
         "import/no-extraneous-dependencies": 0, // 检查引用的node_modules模块
         "import/no-unresolved": 0, // 检查引用的模块
-        "react/prefer-stateless-function": 0,
         "react/jsx-indent": [
             4,
             "space"
         ],
-        "function-paren-newline": 0
+        "function-paren-newline": 0,
+        "no-console": 0,
+        "react/require-default-props": 0
     }
 }

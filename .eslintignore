@@ -1,4 +1,5 @@
 /build/
+/service/
 /config/
 /dist/
 /*.js
@@ -8,3 +9,5 @@
 /*.spec.js
 /*.spec.ts
 /test/
+/src/main/
+/src/main-server/
