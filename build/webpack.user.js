@@ -1,10 +1,9 @@
-'use strict'
 import * as useUtils from './utils-use';
 import config from '../config'
 
 export default {
     resolve: {
-        extensions: ['.js','.jsx'],
+        extensions: ['.ts', '.tsx', '.js','.jsx'],
         alias: {
             src: useUtils.absPath('src'),
             app: useUtils.absPath('src/app'),

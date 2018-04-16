@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { observer, inject } from 'mobx-react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import AppState from 'store/appState';
 
 @inject('appState') @observer
-export default class GoodsList extends React.Component {
+export default class GoodsList extends React.Component<{appState: AppState}> {
     // propTypes = {
     //     appState: PropsTypes.instanceOf(AppState).isRequired,
     // }
@@ -15,8 +15,9 @@ export default class GoodsList extends React.Component {
     //     };
     // }
     componentDidMount() {
+        let _that = this;
         setInterval(() => {
-            this.props.appState.add();
+            _that.props.appState.add();
         }, 1000);
     }
 
@@ -29,9 +30,9 @@ export default class GoodsList extends React.Component {
     }
 }
 
-GoodsList.propTypes = {
-    appState: PropTypes.instanceOf(AppState),
-};
+// GoodsList.propTypes = {
+//     appState: PropTypes.instanceOf(AppState),
+// };
 
 // GoodsList.propTypes = {
 //     appState: PropTypes.instanceOf(AppState).isRequired,

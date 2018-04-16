@@ -4,12 +4,12 @@ import * as useUtils from '../build/utils-use';
 export default {
     server: {
         mainJs: {
-            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main-server/**/*.js')
+            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main-server/**/*.{ts,tsx,js,jsx}')
         }
     },
     comm: {
         mainJs: {
-            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main/**/*.js')
+            srcPath: path.join(path.resolve(process.cwd(), ''),'./src/main/**/*.{ts,tsx,js,jsx}')
         },
         index: useUtils.getHtmlPath({
             srcPath:path.join(path.resolve(process.cwd(), ''),'./src/pages-tpls/**/*.html'),

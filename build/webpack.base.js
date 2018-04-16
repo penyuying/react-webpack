@@ -15,15 +15,22 @@ export default merge({
     module: {
         rules: [{
             test: /.jsx?$/,
-            loader: 'eslint-loader',
             enforce: 'pre',
             include: [path.join(__dirname, '..', 'src')],
-            // exclude: /node_modules/,
-            options: {
-                configFile: useUtils.absPath('.eslintrc.js'),
-                formatter: eslintFormatter,
-                emitWarning: !config.dev.showEslintErrorsInOverlay
-            }
+            use:[{
+                loader: 'eslint-loader',
+                // exclude: /node_modules/,
+                options: {
+                    configFile: useUtils.absPath('.eslintrc.js'),
+                    formatter: eslintFormatter,
+                    emitWarning: !config.dev.showEslintErrorsInOverlay
+                }
+            }, {
+                loader: 'source-map-loader'
+            }]
+        }, {
+            test: /\.tsx?$/,
+            loader: "awesome-typescript-loader"
         }, {
             test: /.jsx$/,
             // loader: require.resolve('babel-loader'),

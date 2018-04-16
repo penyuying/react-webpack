@@ -1,7 +1,7 @@
 import { hot, setConfig } from 'react-hot-loader';
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Routes from 'routes/routes';
+import AppRoutes from 'routes/routes';
 
 class App extends React.Component {
     componentDidMount() {
@@ -14,7 +14,7 @@ class App extends React.Component {
                 <br />
                 <Link href="/detail" to="/detail">detail</Link>
             </div>,
-            <Routes key="appRoutes" />,
+            <AppRoutes key="appRoutes" />,
         ];
     }
 }

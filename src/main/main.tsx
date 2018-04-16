@@ -1,7 +1,7 @@
 import 'core-js/shim';
 import 'core-js/es7/reflect';
 
-import React from 'react';
+import * as React from 'react';
 import { render, hydrate } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,12 +12,12 @@ import AppState from 'store/appState';
 const root = document.getElementById('app-root');
 
 
-const hotRender = Component => {
+const hotRender = (Component: any) => {
     const renderMethod = hydrate;
     renderMethod(
         <Provider appState={new AppState()}>
             <BrowserRouter>
-                    <Component />
+                <Component />
             </BrowserRouter>
         </Provider>,
         root);

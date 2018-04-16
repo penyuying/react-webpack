@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "baseUrl":"./src/",
+        "paths": {
+            "views/*": ["./app/views/*"],
+            "config/*":["./app/config/*"],
+            "routes/*":["./app/config/routes/*"],
+            "store/*":["./app/store/*"]
+        },
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./dist/**/*"
+    ]
+}

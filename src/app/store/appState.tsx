@@ -5,8 +5,8 @@ class AppState {
         this.count = count;
         this.amount = amount;
     }
-    @observable count;
-    @observable amount;
+    @observable count: number;
+    @observable amount: number;
 
     // @computed get total() {
     //     return this.count * this.amount;

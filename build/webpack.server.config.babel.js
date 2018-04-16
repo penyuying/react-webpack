@@ -13,7 +13,7 @@ export default merge({
     }
 },merge(webpackBase, {
     target: 'node',
-    entry: useUtils.getMainPath(config.server.mainJs, 'js'),
+    entry: useUtils.getMainPath(config.server.mainJs, 'jsx'),
     output: {
         path: config.comm.assetsRoot,
         filename: '[name].js',
