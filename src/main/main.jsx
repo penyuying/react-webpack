@@ -17,7 +17,7 @@ const hotRender = Component => {
     renderMethod(
         <Provider appState={new AppState()}>
             <BrowserRouter>
-                    <Component />
+                <Component />
             </BrowserRouter>
         </Provider>,
         root);
