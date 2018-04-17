@@ -7,9 +7,23 @@ import serverConfig from './server.dev.config';
 
 import Express from 'express';
 import ReactSSR from 'react-dom/server';
-
+import BodyParser from 'body-parser';
+import session from "express-session";
 
 const app = new Express();
+
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({
+    extended: false
+}));
+
+app.use(session({
+    maxAge: 10 * 60 * 1000,
+    name: 'tid',
+    resave: false,
+    saveUninitialized: false,
+    secret: 'xxxx rrrr vvvv'
+}));
 
 if(process.env.NODE_ENV === 'production'){
     const serverEntry = require('../dist/build/server-main');

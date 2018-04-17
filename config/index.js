@@ -34,6 +34,7 @@ export default {
         assetsPublicPath: '/public',
         showEslintErrorsInOverlay: false,
         useEslint: true, // 是否启用eslint
-        devtool: ''
+        devtool: '',
+        productionSourceMap: false,
     }
 }
