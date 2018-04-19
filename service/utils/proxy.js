@@ -25,9 +25,11 @@ export default (req, res, next) => {
     if(serviceCode) {
         axios(`${baseUrl}${serviceCode}`, {
             method: req.method,
-            params: _query,
+            params: Object.assign({},_query, {
+                accesstoken: req.method === 'GET' && _isToken && _accessToken || undefined
+            }),
             data: queryString.stringify(Object.assign({}, req.body, {
-                accesstoken: _accessToken
+                accesstoken: req.method === 'POST' && _isToken && _accessToken || undefined
             })),
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
