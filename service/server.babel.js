@@ -10,6 +10,10 @@ import ReactSSR from 'react-dom/server';
 import BodyParser from 'body-parser';
 import session from "express-session";
 
+import userLogin from './utils/login';
+import apiProxy from './utils/proxy';
+
+
 const app = new Express();
 
 app.use(BodyParser.json());
@@ -24,6 +28,9 @@ app.use(session({
     saveUninitialized: false,
     secret: 'xxxx rrrr vvvv'
 }));
+
+app.use('/api/user', userLogin);
+app.use('/api', apiProxy);
 
 if(process.env.NODE_ENV === 'production'){
     const serverEntry = require('../dist/build/server-main');

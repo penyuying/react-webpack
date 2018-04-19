@@ -25,6 +25,9 @@ let webpackConfig = merge(webpackBase, {
         publicPath: webpackBase.output.publicPath || '',
         historyApiFallback: {
             index: (webpackBase.output.publicPath || '') + '/index.html'
+        },
+        proxy: {
+            '/api/': 'http://localhost:1234'
         }
     },
     plugins: [
